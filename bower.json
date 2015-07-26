@@ -1,8 +1,8 @@
 {
-  "name": "jsurl",
-  "main": "index.js",
+  "name": "jsurl-moment",
+  "main": "lib/jsurl.js",
   "version": "0.1.0",
-  "homepage": "https://github.com/Sage/jsurl",
+  "homepage": "https://github.com/alexan/jsurl",
   "authors": [
     "Bruno Jouhier"
   ],

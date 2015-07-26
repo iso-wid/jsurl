@@ -21,6 +21,7 @@ Think of it as JSON with the following changes:
 * Square brackets (`[` and `]`) replaced by `(~` and `)`
 * Property names unquoted (but escaped -- see below).
 * String values prefixed by a single quote (`'`) and escaped
+* moment values prefixed by star ('*')
 * All other JSON punctuation (colon `:` and comma `,`) replaced by tildes (`~`)
 * An extra tilde (`~`) at the very beginning.
 
