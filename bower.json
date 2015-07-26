@@ -4,7 +4,8 @@
   "version": "0.1.0",
   "homepage": "https://github.com/alexan/jsurl",
   "authors": [
-    "Bruno Jouhier"
+    "Bruno Jouhier",
+    "Alexander Eder"
   ],
   "description": "URL friendly JSON-like formatting and parsing",
   "license": "MIT",
