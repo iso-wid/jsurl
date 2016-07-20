@@ -1,5 +1,5 @@
 {
-  "name": "jsurl",
+  "name": "jsurl-moment",
   "description": "URL friendly JSON-like formatting and parsing",
   "version": "0.1.0",
   "author": "Bruno Jouhier",
