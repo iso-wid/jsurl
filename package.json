@@ -1,8 +1,13 @@
 {
   "name": "jsurl-moment",
   "description": "URL friendly JSON-like formatting and parsing",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Bruno Jouhier",
-  "directories": {"lib": "./lib" },
-  "main": "index.js"
+  "directories": {
+    "lib": "./lib"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "moment": "^2.14.1"
+  }
 }
