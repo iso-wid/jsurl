@@ -1,16 +1,16 @@
 "use strict";
 QUnit.module(module.id);
 
-//var JSURL = require("jsurl/lib/jsurl");
+var JSURL = require("../..");
+var moment = require("moment");
 var undefined;
-
 
 function t(v, r) {
 	strictEqual(JSURL.stringify(v), r, "stringify " + (typeof v !== 'object' ? v : JSON.stringify(v)));
 	strictEqual(JSURL.stringify(JSURL.parse(JSURL.stringify(v))), r, "roundtrip " + (typeof v !== 'object' ? v : JSON.stringify(v)));
 }
 
-test('basic values', 26, function() {
+test('basic values', 28, function() {
 	t(undefined, undefined);
 	t(function() {
 		foo();
@@ -21,7 +21,7 @@ test('basic values', 26, function() {
 	t(0, "~0");
 	t(1, "~1");
 	t(-1.5, "~-1.5");
-   t(moment("2015-01-01"), "~*2015-01-01T00:00:00+01:00");
+    t(moment("2015-01-01"), "~*2015-01-01T00:00:00+01:00");
 	t("hello world\u203c", "~'hello*20world**203c");
 	t(" !\"#$%&'()*+,-./09:;<=>?@AZ[\\]^_`az{|}~", "~'*20*21*22*23!*25*26*27*28*29*2a*2b*2c-.*2f09*3a*3b*3c*3d*3e*3f*40AZ*5b*5c*5d*5e_*60az*7b*7c*7d*7e");
 	// JSON.stringify converts special numeric values to null
@@ -47,7 +47,7 @@ test('objects', 4, function() {
 		d: false,
 		e: 0,
 		f: moment("2015-01-01"),
-      g: "hello world\u203c",
+        g: "hello world\u203c"
 	}, "~(c~null~d~false~e~0~f~*2015-01-01T00:00:00+01:00~g~'hello*20world**203c)");
 });
 test('mix', 2, function() {
@@ -62,4 +62,11 @@ test('mix', 2, function() {
 			f: []
 		}
 	}, "~(a~(~(~1~2)~(~)~())~b~(~)~c~(d~'hello~e~()~f~(~)))");
+});
+
+test('percent-escpaed single quotes', 1, function() {
+	deepEqual(JSURL.parse("~(a~%27hello~b~%27world)"), {
+		a: 'hello',
+		b: 'world'
+	});
 });
