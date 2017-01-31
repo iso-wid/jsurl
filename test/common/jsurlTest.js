@@ -21,7 +21,7 @@ test('basic values', 28, function() {
 	t(0, "~0");
 	t(1, "~1");
 	t(-1.5, "~-1.5");
-    t(moment("2015-01-01"), "~*2015-01-01T00:00:00+01:00");
+    t(moment.utc("2015-01-01"), "~*2015-01-01T00:00:00Z");
 	t("hello world\u203c", "~'hello*20world**203c");
 	t(" !\"#$%&'()*+,-./09:;<=>?@AZ[\\]^_`az{|}~", "~'*20*21*22*23!*25*26*27*28*29*2a*2b*2c-.*2f09*3a*3b*3c*3d*3e*3f*40AZ*5b*5c*5d*5e_*60az*7b*7c*7d*7e");
 	// JSON.stringify converts special numeric values to null
@@ -46,9 +46,9 @@ test('objects', 4, function() {
 		c: null,
 		d: false,
 		e: 0,
-		f: moment("2015-01-01"),
+		f: moment.utc("2015-01-01"),
         g: "hello world\u203c"
-	}, "~(c~null~d~false~e~0~f~*2015-01-01T00:00:00+01:00~g~'hello*20world**203c)");
+	}, "~(c~null~d~false~e~0~f~*2015-01-01T00:00:00Z~g~'hello*20world**203c)");
 });
 test('mix', 2, function() {
 	t({
